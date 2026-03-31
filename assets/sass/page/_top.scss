@@ -1,1 +1,252 @@
 @use '../global' as *;
+
+.p-home {
+  &__kv {
+    padding: calc(160 / 390 * 100vw) calc(30 / 390 * 100vw) calc(90 / 390 * 100vw);
+    @media screen and (min-width: 960px) {
+      padding: rem(240) 0;
+    }
+    &__inner {
+      display: flex;
+      align-items: center;
+      flex-direction: column-reverse;
+      gap: calc(60 / 390 * 100vw);
+      @media screen and (min-width: 960px) {
+        width: calc(1192 / 1512 * min(100vw, 1512px));
+        margin: 0 auto;
+        justify-content: space-between;
+        flex-direction: row;
+        gap: 0;
+      }
+    }
+    &__txtarea {
+      flex: 1;
+    }
+    &__catch {
+      margin-bottom: fluid(20, 30);
+      font-size: fluid(38, 70);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: 1.52px;
+      @media screen and (min-width: 960px) {
+        letter-spacing: 2.8px;
+      }
+    }
+    &__text {
+      font-size: fluid(14, 18);
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: 0.42px;
+      @media screen and (min-width: 960px) {
+        letter-spacing: 0.54px;
+      }
+    }
+    &__imgarea {
+      width: fluid(240, 551);
+      margin: 0 auto;
+      @media screen and (min-width: 960px) {
+        margin: 0;
+      }
+    }
+  } //.p-home__kv
+  &__service {
+    padding: fluid(90, 120) rem(30);
+    border-radius: 30px;
+    background: #fff;
+    @media screen and (min-width: 960px) {
+      padding-left: 0;
+      padding-right: 0;
+      border-radius: 60px;
+    }
+    &__inner {
+      width: calc(1192 / 1512 * min(100vw, 1512px));
+      margin: 0 auto;
+    }
+    &__title {
+      margin-bottom: fluid(30, 60);
+      color: #2c3ccd;
+      font-family: $font-en;
+      font-size: fluid(42, 64);
+      font-weight: 500;
+      line-height: 1;
+    }
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: fluid(15, 30);
+      @media screen and (min-width: 960px) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    &__item {
+      width: 100%;
+      padding: rem(30) fluid(20, 60);
+      border-radius: 15px;
+      background: #f5f5f5;
+    }
+    &__dtitle {
+      padding-left: fluid(16, 20);
+      margin-bottom: fluid(10, 15);
+      color: #222;
+      font-feature-settings: 'palt' on;
+      font-size: fluid(17, 20);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: 0.68px;
+      text-align: justify;
+      position: relative;
+      @media screen and (min-width: 960px) {
+        letter-spacing: 0.8px;
+      }
+      &::before {
+        content: '';
+        display: block;
+        width: fluid(8, 10);
+        height: fluid(8, 10);
+        border-radius: 50%;
+        background: #2c3ccd;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+    &__dtext {
+      color: #222;
+      font-feature-settings: 'palt';
+      font-size: fluid(14, 16);
+      font-weight: 400;
+      line-height: 1.8;
+      letter-spacing: 0.42px;
+      text-align: justify;
+      @media screen and (min-width: 960px) {
+        letter-spacing: 0.48px;
+      }
+    }
+  }
+  //.p-home__service
+  &__company {
+    padding: fluid(90, 120) rem(30);
+    @media screen and (min-width: 960px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &__inner {
+      width: calc(1192 / 1512 * min(100vw, 1512px));
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      gap: rem(120);
+    }
+    &__title {
+      margin-bottom: rem(30);
+      font-family: $font-en;
+      font-size: fluid(42, 64);
+      font-weight: 500;
+      line-height: 1;
+      @media screen and (min-width: 960px) {
+        margin-bottom: 0;
+      }
+    }
+    &__list {
+      flex: 1;
+    }
+    &__item {
+      padding: rem(20) 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      @media screen and (min-width: 960px) {
+        display: flex;
+        align-items: flex-start;
+      }
+    }
+    &__dtitle {
+      margin-bottom: rem(10);
+      font-feature-settings: 'palt';
+      font-size: fluid(14, 16);
+      font-weight: 700;
+      line-height: 1.8;
+      letter-spacing: 0.42px;
+      text-align: justify;
+      @media screen and (min-width: 960px) {
+        width: rem(200);
+        margin-bottom: 0;
+        letter-spacing: 0.48px;
+      }
+    }
+    &__dtext {
+      text-align: justify;
+      font-feature-settings: 'palt';
+      font-size: fluid(14, 16);
+      font-weight: 400;
+      line-height: 1.8;
+      letter-spacing: 0.42px;
+      @media screen and (min-width: 960px) {
+        flex: 1;
+      }
+      &.c-before__dots {
+        display: flex;
+        align-items: center;
+        &::before {
+          content: '';
+          display: block;
+          width: fluid(2.5, 3);
+          height: fluid(2.5, 3);
+          border-radius: 50%;
+          background: #fff;
+          margin-left: fluid(8, 10);
+          margin-right: fluid(8, 10);
+          flex-shrink: 0;
+        }
+      }
+    }
+  } //.p-home__company
+  &__contact {
+    margin-bottom: fluid(90, 120);
+    &__inner {
+      width: fluid(330, 1192);
+      padding: fluid(60, 80) fluid(30, 160);
+      margin: 0 auto;
+      border-radius: 20px;
+      background: #fff;
+      @media screen and (min-width: 960px) {
+        @media screen and (min-width: 960px) {
+          border-radius: 30px;
+        }
+      }
+    }
+    &__title {
+      margin-bottom: fluid(30, 60);
+      color: #2c3ccd;
+      font-family: $font-en;
+      font-size: fluid(42, 64);
+      font-weight: 500;
+      line-height: 1;
+      text-align: center;
+    }
+    &__btn {
+      width: 100%;
+      height: fluid(70, 120);
+      border-radius: 1000px;
+      background: #2c3ccd;
+      box-shadow: 0 0 20px 0 rgba(34, 34, 34, 0.16);
+      color: #fff;
+      font-feature-settings: 'palt' on;
+      font-size: fluid(16, 28);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: 0.48px;
+      text-align: justify;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: fluid(10, 15);
+      @media screen and (min-width: 960px) {
+        letter-spacing: 0.84px;
+      }
+    }
+    &__icon {
+      width: fluid(28, 42);
+      height: fluid(28, 42);
+    }
+  } //.p-home__contact
+}

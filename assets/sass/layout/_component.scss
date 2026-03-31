@@ -5,10 +5,13 @@
 *::after {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: $font-jp;
   font-style: normal;
-  color: var(--black);
+  color: #fff;
 }
 li {
   list-style-type: none;
@@ -69,13 +72,13 @@ button {
   overflow: hidden;
 }
 .only_sp {
-  @media screen and (min-width: $brake) {
+  @media screen and (min-width: $brake1) {
     display: none !important;
   }
 }
 .only_pc {
   display: none !important;
-  @media screen and (min-width: $brake) {
+  @media screen and (min-width: $brake1) {
     display: block !important;
   }
 }
@@ -83,3 +86,7 @@ button {
 /* ===========================================
 * component
 * ======================================== */
+.container {
+  width: 100%;
+  background: #2c3ccd;
+}

@@ -9,8 +9,8 @@ color設定
 /*------------------
 googleフォント指定
 -------------------*/
-$font-jp: 'Noto Sans JP', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', sans-serif;
-$font-en: 'Roboto', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', sans-serif;
+$font-jp: YakuHanJP, 'Zen Kaku Gothic New', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', sans-serif;
+$font-en: 'Public Sans', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', sans-serif;
 //$ff3 : "Klee One", cursive;
 
 /*------------------
@@ -31,12 +31,12 @@ header固定時の高さ指定　PC SP ※header fix時に使用
 $header-height__pc: 108px;
 $header-height__sp: 60px;
 
-html {
-  scroll-padding-top: $header-height__pc;
-  @media screen and (max-width: $brake1) {
-    scroll-padding-top: $header-height__sp;
-  }
-}
+// html {
+//   scroll-padding-top: $header-height__pc;
+//   @media screen and (max-width: $brake1) {
+//     scroll-padding-top: $header-height__sp;
+//   }
+// }
 
 /*------------------
 よく使う横幅

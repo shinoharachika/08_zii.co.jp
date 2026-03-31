@@ -14,15 +14,6 @@ break point
 /*------------------
 header固定時の高さ指定　PC SP ※header fix時に使用
 -------------------*/
-html {
-  scroll-padding-top: 108px;
-}
-@media screen and (max-width: 1128px) {
-  html {
-    scroll-padding-top: 60px;
-  }
-}
-
 /*------------------
 よく使う横幅
 -------------------*/
@@ -30,9 +21,19 @@ html {
 coming soon時　※jsの変更も必要
 -------------------*/
 a {
-  transition: 0.3s;
+  display: block;
+  color: #111;
+  text-decoration: none;
 }
 
+@media screen and (min-width: 960px) {
+  a {
+    transition: 0.2s;
+  }
+  a:hover {
+    opacity: 0.5;
+  }
+}
 .a-text-underline {
   position: relative;
   text-decoration: none;
@@ -284,35 +285,138 @@ faq
   display: none;
 }
 
-*:not(span, a) {
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-style: normal;
-  color: #111;
+.l-header {
+  width: 100%;
+  padding: 3.8461538462vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+@media screen and (min-width: 960px) {
+  .l-header {
+    padding: 0;
+  }
+}
+.l-header__inner {
+  height: clamp(3.125rem, 2.1256684492rem + 4.0998217469vw, 6rem);
+  padding: 1.2820512821vw;
+  padding-left: 5.1282051282vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1000px;
+  background: #fff;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+}
+@media screen and (min-width: 960px) {
+  .l-header__inner {
+    height: auto;
+    padding: 0;
+    padding-right: 1.875rem;
+    background-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+}
+.l-header__logo {
+  width: 12.8205128205vw;
+}
+@media screen and (min-width: 960px) {
+  .l-header__logo {
+    width: 12.3125rem;
+    height: 6rem;
+    border-radius: 0 0 30px 0;
+    background: #fff;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .l-header__logo img {
+    width: 4.8125rem;
+  }
+}
+.l-header__nav {
+  height: 100%;
+}
+@media screen and (min-width: 960px) {
+  .l-header__nav {
+    width: 23.625rem;
+    height: 3.5rem;
+    padding: 0.3125rem;
+    border-radius: 1000px;
+    background: #fff;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+  }
+}
+.l-header__nav__list {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.l-header__nav__item {
+  height: 100%;
+}
+.l-header__nav__item.active .l-header__nav__link {
+  border-radius: 1000px;
+  background: #2c3ccd;
+  color: #fff;
+}
+.l-header__nav__link {
+  width: fit-content;
+  height: 100%;
+  padding: 0 clamp(0.9375rem, 0.611631016rem + 1.3368983957vw, 1.875rem);
+  color: #222;
+  font-family: "Public Sans", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: clamp(0.8125rem, 0.7473262032rem + 0.2673796791vw, 1rem);
+  font-weight: 500;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.l-footer {
+  padding: 1.875rem 0;
+  text-align: center;
+}
+.l-footer__copy {
+  font-size: 0.75rem;
+  font-feature-settings: "palt";
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.36px;
+  text-align: center;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: YakuHanJP, "Zen Kaku Gothic New", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-style: normal;
+  color: #fff;
 }
 
 li {
   list-style-type: none;
 }
 
-a {
-  display: block;
-  color: #111;
-  text-decoration: none;
-}
-
-@media screen and (min-width: 960px) {
-  a {
-    transition: 0.2s;
-  }
-  a:hover {
-    opacity: 0.5;
-  }
-}
 img {
   max-width: 100%;
   height: auto;
   display: block;
+  font-style: italic;
 }
 
 /* contact */
@@ -360,21 +464,314 @@ button {
   appearance: none;
 }
 
-@media screen and (min-width: 960px) {
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1128px) {
   .only_sp {
-    display: none;
+    display: none !important;
   }
 }
 
 .only_pc {
-  display: none;
+  display: none !important;
 }
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 1128px) {
   .only_pc {
-    display: block;
+    display: block !important;
   }
 }
 
 /* ===========================================
 * component
-* ======================================== *//*# sourceMappingURL=style.css.map */
+* ======================================== */
+.container {
+  width: 100%;
+  background: #2c3ccd;
+}
+
+.p-home__kv {
+  padding: 41.0256410256vw 7.6923076923vw 23.0769230769vw;
+}
+@media screen and (min-width: 960px) {
+  .p-home__kv {
+    padding: 15rem 0;
+  }
+}
+.p-home__kv__inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 15.3846153846vw;
+}
+@media screen and (min-width: 960px) {
+  .p-home__kv__inner {
+    width: calc(0.7883597884 * min(100vw, 1512px));
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 0;
+  }
+}
+.p-home__kv__txtarea {
+  flex: 1;
+}
+.p-home__kv__catch {
+  margin-bottom: clamp(1.25rem, 1.0327540107rem + 0.8912655971vw, 1.875rem);
+  font-size: clamp(2.375rem, 1.6798128342rem + 2.8520499109vw, 4.375rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 1.52px;
+}
+@media screen and (min-width: 960px) {
+  .p-home__kv__catch {
+    letter-spacing: 2.8px;
+  }
+}
+.p-home__kv__text {
+  font-size: clamp(0.875rem, 0.7881016043rem + 0.3565062389vw, 1.125rem);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.42px;
+}
+@media screen and (min-width: 960px) {
+  .p-home__kv__text {
+    letter-spacing: 0.54px;
+  }
+}
+.p-home__kv__imgarea {
+  width: clamp(15rem, 8.2436497326rem + 27.7183600713vw, 34.4375rem);
+  margin: 0 auto;
+}
+@media screen and (min-width: 960px) {
+  .p-home__kv__imgarea {
+    margin: 0;
+  }
+}
+.p-home__service {
+  padding: clamp(5.625rem, 4.9732620321rem + 2.6737967914vw, 7.5rem) 1.875rem;
+  border-radius: 30px;
+  background: #fff;
+}
+@media screen and (min-width: 960px) {
+  .p-home__service {
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 60px;
+  }
+}
+.p-home__service__inner {
+  width: calc(0.7883597884 * min(100vw, 1512px));
+  margin: 0 auto;
+}
+.p-home__service__title {
+  margin-bottom: clamp(1.875rem, 1.2232620321rem + 2.6737967914vw, 3.75rem);
+  color: #2c3ccd;
+  font-family: "Public Sans", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: clamp(2.625rem, 2.1470588235rem + 1.9607843137vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+.p-home__service__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(0.9375rem, 0.611631016rem + 1.3368983957vw, 1.875rem);
+}
+@media screen and (min-width: 960px) {
+  .p-home__service__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.p-home__service__item {
+  width: 100%;
+  padding: 1.875rem clamp(1.25rem, 0.3810160428rem + 3.5650623886vw, 3.75rem);
+  border-radius: 15px;
+  background: #f5f5f5;
+}
+.p-home__service__dtitle {
+  padding-left: clamp(1rem, 0.9131016043rem + 0.3565062389vw, 1.25rem);
+  margin-bottom: clamp(0.625rem, 0.5163770053rem + 0.4456327986vw, 0.9375rem);
+  color: #222;
+  font-feature-settings: "palt" on;
+  font-size: clamp(1.0625rem, 0.9973262032rem + 0.2673796791vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.68px;
+  text-align: justify;
+  position: relative;
+}
+@media screen and (min-width: 960px) {
+  .p-home__service__dtitle {
+    letter-spacing: 0.8px;
+  }
+}
+.p-home__service__dtitle::before {
+  content: "";
+  display: block;
+  width: clamp(0.5rem, 0.4565508021rem + 0.1782531194vw, 0.625rem);
+  height: clamp(0.5rem, 0.4565508021rem + 0.1782531194vw, 0.625rem);
+  border-radius: 50%;
+  background: #2c3ccd;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.p-home__service__dtext {
+  color: #222;
+  font-feature-settings: "palt";
+  font-size: clamp(0.875rem, 0.8315508021rem + 0.1782531194vw, 1rem);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.42px;
+  text-align: justify;
+}
+@media screen and (min-width: 960px) {
+  .p-home__service__dtext {
+    letter-spacing: 0.48px;
+  }
+}
+.p-home__company {
+  padding: clamp(5.625rem, 4.9732620321rem + 2.6737967914vw, 7.5rem) 1.875rem;
+}
+@media screen and (min-width: 960px) {
+  .p-home__company {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.p-home__company__inner {
+  width: calc(0.7883597884 * min(100vw, 1512px));
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 7.5rem;
+}
+.p-home__company__title {
+  margin-bottom: 1.875rem;
+  font-family: "Public Sans", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: clamp(2.625rem, 2.1470588235rem + 1.9607843137vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+@media screen and (min-width: 960px) {
+  .p-home__company__title {
+    margin-bottom: 0;
+  }
+}
+.p-home__company__list {
+  flex: 1;
+}
+.p-home__company__item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+@media screen and (min-width: 960px) {
+  .p-home__company__item {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+.p-home__company__dtitle {
+  margin-bottom: 0.625rem;
+  font-feature-settings: "palt";
+  font-size: clamp(0.875rem, 0.8315508021rem + 0.1782531194vw, 1rem);
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.42px;
+  text-align: justify;
+}
+@media screen and (min-width: 960px) {
+  .p-home__company__dtitle {
+    width: 12.5rem;
+    margin-bottom: 0;
+    letter-spacing: 0.48px;
+  }
+}
+.p-home__company__dtext {
+  text-align: justify;
+  font-feature-settings: "palt";
+  font-size: clamp(0.875rem, 0.8315508021rem + 0.1782531194vw, 1rem);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.42px;
+}
+@media screen and (min-width: 960px) {
+  .p-home__company__dtext {
+    flex: 1;
+  }
+}
+.p-home__company__dtext.c-before__dots {
+  display: flex;
+  align-items: center;
+}
+.p-home__company__dtext.c-before__dots::before {
+  content: "";
+  display: block;
+  width: clamp(0.15625rem, 0.1453877005rem + 0.0445632799vw, 0.1875rem);
+  height: clamp(0.15625rem, 0.1453877005rem + 0.0445632799vw, 0.1875rem);
+  border-radius: 50%;
+  background: #fff;
+  margin-left: clamp(0.5rem, 0.4565508021rem + 0.1782531194vw, 0.625rem);
+  margin-right: clamp(0.5rem, 0.4565508021rem + 0.1782531194vw, 0.625rem);
+  flex-shrink: 0;
+}
+.p-home__contact {
+  margin-bottom: clamp(5.625rem, 4.9732620321rem + 2.6737967914vw, 7.5rem);
+}
+.p-home__contact__inner {
+  width: clamp(20.625rem, 1.8983957219rem + 76.8270944742vw, 74.5rem);
+  padding: clamp(3.75rem, 3.3155080214rem + 1.7825311943vw, 5rem) clamp(1.875rem, -0.949197861rem + 11.5864527629vw, 10rem);
+  margin: 0 auto;
+  border-radius: 20px;
+  background: #fff;
+}
+@media screen and (min-width: 960px) and (min-width: 960px) {
+  .p-home__contact__inner {
+    border-radius: 30px;
+  }
+}
+.p-home__contact__title {
+  margin-bottom: clamp(1.875rem, 1.2232620321rem + 2.6737967914vw, 3.75rem);
+  color: #2c3ccd;
+  font-family: "Public Sans", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: clamp(2.625rem, 2.1470588235rem + 1.9607843137vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+}
+.p-home__contact__btn {
+  width: 100%;
+  height: clamp(4.375rem, 3.2887700535rem + 4.4563279857vw, 7.5rem);
+  border-radius: 1000px;
+  background: #2c3ccd;
+  box-shadow: 0 0 20px 0 rgba(34, 34, 34, 0.16);
+  color: #fff;
+  font-feature-settings: "palt" on;
+  font-size: clamp(1rem, 0.7393048128rem + 1.0695187166vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.48px;
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.625rem, 0.5163770053rem + 0.4456327986vw, 0.9375rem);
+}
+@media screen and (min-width: 960px) {
+  .p-home__contact__btn {
+    letter-spacing: 0.84px;
+  }
+}
+.p-home__contact__icon {
+  width: clamp(1.75rem, 1.445855615rem + 1.247771836vw, 2.625rem);
+  height: clamp(1.75rem, 1.445855615rem + 1.247771836vw, 2.625rem);
+}
