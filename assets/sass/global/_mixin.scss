@@ -1,0 +1,82 @@
+@use 'setting';
+
+// px → rem 変換関数
+@function rem($pixels) {
+  @return ($pixels / 16) * 1rem;
+}
+// 最小値、最大値内での可変を計算する fluid 関数
+@function fluid($min, $max, $min-vw: 390, $max-vw: 1512) {
+  // px値ベースで傾きと切片を出す
+  $slope: ($max - $min) / ($max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+  // 出力をrem換算
+  @return clamp(rem($min), calc(rem($intercept) + #{$slope * 100}vw), rem($max));
+}
+// 最大サイズを自動計算する fluid 関数
+// @param $scale: 500pxでの最大サイズを決める倍率
+@function fluid-auto($min, $scale: 1.1, $min-vw: 390) {
+  // 最大ビューポート幅を 500px に固定
+  $max-vw: 500;
+  $max: $min * $scale;
+  $slope: ($max - $min) / ($max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+  @return clamp(rem($min), calc(rem($intercept) + #{$slope * 100}vw), rem($max));
+}
+
+@mixin mxFont($ff, $fw, $fs, $lh, $mp) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-size: round($fs * $mp);
+  line-height: round($lh * $mp);
+  --leading-trim: calc((1em - 1lh) / 2);
+}
+
+@mixin mxFont2($ff, $fw, $fs, $lh, $cl, $mp) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-size: round($fs * $mp);
+  line-height: round($lh * $mp);
+  @if $cl != 0 {
+    color: $cl;
+  }
+}
+
+@mixin mxflex($xWd) {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  width: $xWd;
+}
+@mixin mxflex__sb($xWd) {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  width: $xWd;
+}
+@mixin mxflex__sa($xWd) {
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  width: $xWd;
+}
+
+@mixin mxLqSz($pr, $ch) {
+  width: $ch/$pr * 100%;
+}
+@mixin mxLqSzPd($pr, $ch1, $ch2, $ch3, $ch4) {
+  padding: $ch1 $ch2/$pr * 100% $ch3 $ch4/$pr * 100%;
+}
+@mixin mxLqSzMg($pr, $ch1, $ch2, $ch3, $ch4) {
+  margin: $ch1 $ch2/$pr * 100% $ch3 $ch4/$pr * 100%;
+}
+
+@mixin c-section__val($xwidth) {
+  max-width: $xwidth;
+  width: 90%;
+  margin: 0 auto;
+}

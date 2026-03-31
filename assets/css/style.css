@@ -1,0 +1,380 @@
+@charset "UTF-8";
+/*------------------
+color設定
+-------------------*/
+/*------------------
+googleフォント指定
+-------------------*/
+/*------------------
+break point
+-------------------*/
+/*------------------
+スマホ倍率
+-------------------*/
+/*------------------
+header固定時の高さ指定　PC SP ※header fix時に使用
+-------------------*/
+html {
+  scroll-padding-top: 108px;
+}
+@media screen and (max-width: 1128px) {
+  html {
+    scroll-padding-top: 60px;
+  }
+}
+
+/*------------------
+よく使う横幅
+-------------------*/
+/*------------------
+coming soon時　※jsの変更も必要
+-------------------*/
+a {
+  transition: 0.3s;
+}
+
+.a-text-underline {
+  position: relative;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.a-text-underline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform 0.3s;
+}
+
+.a-text-underline:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.a-text-underline__right {
+  position: relative;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.a-text-underline__right::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transform-origin: left top;
+  transform: scale(0, 1);
+  transition: transform 0.3s;
+}
+
+.a-text-underline__right:hover::before {
+  transform-origin: right top;
+  transform: scale(1, 1);
+}
+
+.a-text-underline__center {
+  position: relative;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.a-text-underline__center::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transform-origin: center top;
+  transform: scale(0, 1);
+  transition: transform 0.3s;
+}
+
+.a-text-underline__center:hover::before {
+  transform-origin: center top;
+  transform: scale(1, 1);
+}
+
+.a-text-marker {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  text-decoration: none;
+}
+
+.a-text-marker::before {
+  background: #000;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: scale(0, 1);
+  transform-origin: right top;
+  transition: transform 0.3s;
+  z-index: -1;
+}
+
+.a-text-marker:hover {
+  color: #fff;
+}
+
+.a-text-marker:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.a-text-move__right {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.a-text-move__right:hover {
+  transform: translateX(5px);
+}
+
+.a-text-move__top {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.a-text-move__top:hover {
+  transform: translateY(-5px);
+}
+
+.a-text-gradient {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+  color: transparent;
+  background: linear-gradient(to right, #000 50%, #000 50%) 100%;
+  background-clip: text;
+  background-size: 200% 100%;
+  transition: background-position 0.4s;
+}
+
+.a-text-gradient:hover {
+  background-position: 0 100%;
+}
+
+/*--------------------
+menu
+--------------------*/
+.a-menubtn {
+  position: relative;
+  background: #f00;
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 1128px) {
+  .a-menubtn {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+  }
+}
+.a-menubtn span {
+  display: inline-block;
+  transition: all 0.4s;
+  box-sizing: border-box;
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+@media screen and (max-width: 1128px) {
+  .a-menubtn span {
+    left: 7px;
+    width: 16px;
+  }
+}
+.a-menubtn span:nth-of-type(1) {
+  top: 14px;
+}
+@media screen and (max-width: 1128px) {
+  .a-menubtn span:nth-of-type(1) {
+    top: 9px;
+  }
+}
+.a-menubtn span:nth-of-type(2) {
+  top: 19px;
+}
+@media screen and (max-width: 1128px) {
+  .a-menubtn span:nth-of-type(2) {
+    top: 14px;
+  }
+}
+.a-menubtn span:nth-of-type(3) {
+  top: 24px;
+}
+@media screen and (max-width: 1128px) {
+  .a-menubtn span:nth-of-type(3) {
+    top: 19px;
+  }
+}
+
+.a-menubtn.active span:nth-of-type(1) {
+  transform: translateY(5px) rotate(-45deg);
+}
+.a-menubtn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.a-menubtn.active span:nth-of-type(3) {
+  transform: translateY(-5px) rotate(45deg);
+}
+
+/*--------------------
+faq
+--------------------*/
+.a-plus {
+  cursor: pointer;
+  position: relative;
+}
+
+.a-plus::before,
+.a-plus::after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background-color: #f00;
+  position: absolute;
+  right: 20px;
+  top: 55%;
+  transform: translateY(-50%);
+  transition: opacity 0.5s;
+}
+
+.a-plus::after {
+  transform: translateY(-50%) rotate(90deg);
+  transition: transform 0.5s;
+}
+
+.a-plus.show::before {
+  opacity: 0;
+}
+
+.a-plus.show::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.a-faq__q {
+  cursor: pointer;
+}
+
+.a-faq__a {
+  display: none;
+}
+
+*:not(span, a) {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-style: normal;
+  color: #111;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  display: block;
+  color: #111;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 960px) {
+  a {
+    transition: 0.2s;
+  }
+  a:hover {
+    opacity: 0.5;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* contact */
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: none;
+}
+
+input[type=submit],
+input[type=button],
+label,
+button,
+select {
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+@media screen and (min-width: 960px) {
+  .only_sp {
+    display: none;
+  }
+}
+
+.only_pc {
+  display: none;
+}
+@media screen and (min-width: 960px) {
+  .only_pc {
+    display: block;
+  }
+}
+
+/* ===========================================
+* component
+* ======================================== *//*# sourceMappingURL=style.css.map */

@@ -1,0 +1,55 @@
+//font、color等の変数をまとめる用
+
+/*------------------
+color設定
+-------------------*/
+:root {
+}
+
+/*------------------
+googleフォント指定
+-------------------*/
+$font-jp: 'Noto Sans JP', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', sans-serif;
+$font-en: 'Roboto', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', sans-serif;
+//$ff3 : "Klee One", cursive;
+
+/*------------------
+break point
+-------------------*/
+$brake1: 1128px;
+$brake2: 834px;
+$brake3: 700px;
+
+/*------------------
+スマホ倍率
+-------------------*/
+$spm: 0.7;
+
+/*------------------
+header固定時の高さ指定　PC SP ※header fix時に使用
+-------------------*/
+$header-height__pc: 108px;
+$header-height__sp: 60px;
+
+html {
+  scroll-padding-top: $header-height__pc;
+  @media screen and (max-width: $brake1) {
+    scroll-padding-top: $header-height__sp;
+  }
+}
+
+/*------------------
+よく使う横幅
+-------------------*/
+$inner-width: 1000px;
+$inner-width__l: 1200px;
+$inner-width__s: 800px;
+$inner-width__xs: 600px;
+
+/*------------------
+coming soon時　※jsの変更も必要
+-------------------*/
+// [href*="about"],[href*="business"],[href*="environment"],[href*="information"] {
+//   cursor:auto;
+//   opacity:.5;
+// }

@@ -1,0 +1,110 @@
+@use '../global' as *;
+
+/*--------------------
+menu
+--------------------*/
+.a-menubtn {
+  position: relative;
+  background: #f00;
+  width: 40px;
+  height: 40px;
+  display: block;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  @media screen and (max-width: $brake1) {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+  }
+  span {
+    display: inline-block;
+    transition: all 0.4s;
+    box-sizing: border-box;
+    position: absolute;
+    left: 10px;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    @media screen and (max-width: $brake1) {
+      left: 7px;
+      width: 16px;
+    }
+  }
+  span:nth-of-type(1) {
+    top: 14px;
+    @media screen and (max-width: $brake1) {
+      top: 9px;
+    }
+  }
+  span:nth-of-type(2) {
+    top: 19px;
+    @media screen and (max-width: $brake1) {
+      top: 14px;
+    }
+  }
+  span:nth-of-type(3) {
+    top: 24px;
+    @media screen and (max-width: $brake1) {
+      top: 19px;
+    }
+  }
+}
+.a-menubtn.active {
+  span:nth-of-type(1) {
+    transform: translateY(5px) rotate(-45deg);
+  }
+  span:nth-of-type(2) {
+    opacity: 0;
+  }
+  span:nth-of-type(3) {
+    transform: translateY(-5px) rotate(45deg);
+  }
+}
+
+/*--------------------
+faq
+--------------------*/
+
+.a-plus {
+  cursor: pointer;
+  position: relative;
+}
+
+.a-plus::before,
+.a-plus::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background-color: #f00;
+  position: absolute;
+  right: 20px;
+  top: 55%;
+  transform: translateY(-50%);
+  transition: opacity 0.5s;
+}
+
+.a-plus::after {
+  transform: translateY(-50%) rotate(90deg);
+  transition: transform 0.5s;
+}
+
+.a-plus.show::before {
+  opacity: 0;
+}
+
+.a-plus.show::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.a-faq__q {
+  cursor: pointer;
+}
+.a-faq__a {
+  display: none;
+}
+
+@media screen and (max-width: $brake1) {
+}

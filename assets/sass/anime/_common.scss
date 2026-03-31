@@ -1,0 +1,15 @@
+@use '../global' as *;
+
+a {
+  display: block;
+  color: #111;
+  text-decoration: none;
+}
+@media screen and (min-width: 960px) {
+  a {
+    transition: 0.2s;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

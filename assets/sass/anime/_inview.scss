@@ -1,0 +1,14 @@
+@use '../global' as *;
+
+// //フェードイン(初期値)
+// section {
+//   opacity: 0;  //最初は非表示
+//   transform: translateY(30px); //下に30pxの位置から
+//   transition: opacity .5s, transform .5s; // 透過率と縦方向の移動を0.8秒
+// }
+// // フェードイン(スクロールした後)
+// section.is-inview {
+//   opacity: 1; //表示領域に入ったら表示
+//   transform: translateY(0); //0px上に移動する
+//   transition-delay: .5s; //フェード開始を0.5秒遅らせる
+// }
