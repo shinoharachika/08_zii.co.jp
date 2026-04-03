@@ -132,11 +132,13 @@
       padding-right: 0;
     }
     &__inner {
-      width: calc(1192 / 1512 * min(100vw, 1512px));
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-start;
-      gap: rem(120);
+      @media screen and (min-width: 960px) {
+        width: calc(1192 / 1512 * min(100vw, 1512px));
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        gap: rem(120);
+      }
     }
     &__title {
       margin-bottom: rem(30);
@@ -226,6 +228,7 @@
     &__btn {
       width: 100%;
       height: fluid(70, 120);
+      margin-bottom: rem(20);
       border-radius: 1000px;
       background: #2c3ccd;
       box-shadow: 0 0 20px 0 rgba(34, 34, 34, 0.16);
@@ -247,6 +250,14 @@
     &__icon {
       width: fluid(28, 42);
       height: fluid(28, 42);
+    }
+    &__textlink {
+      color: #2c3ccd;
+      text-align: center;
+      font-family: $font-en;
+      font-size: rem(14);
+      font-weight: 500;
+      line-height: 1;
     }
   } //.p-home__contact
 }

@@ -4,25 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="株式会社Ziiは、HR・広報PR・ブランディング・DX・経理財務など、経営を動かすバックオフィス機能を包括的に支援します。" />
+    <!-- <meta name="keywords" content="" /> -->
     <!-- ogp tag -->
-    <meta property="og:title" content="" />
+    <meta property="og:title" content="株式会社Zii | 「チームの力」で、経営を動かす。バックオフィス・DX・HR支援" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="絶対パス" />
-    <meta property="og:description" content="" />
-    <meta property="og:site_name" content="" />
-    <meta property="og:image" content="絶対パス" />
+    <meta property="og:url" content="https://www.zii.co.jp" />
+    <meta property="og:description" content="株式会社Ziiは、HR・広報PR・ブランディング・DX・経理財務など、経営を動かすバックオフィス機能を包括的に支援します。" />
+    <meta property="og:site_name" content="株式会社Zii" />
+    <meta property="og:image" content="/assets/img/ogimage.jpg" />
+    <!-- <meta property="og:image" content="https://www.zii.co.jp/assets/img/ogimage.jpg" /> -->
     <!-- x card -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@username" />
-    <meta name="twitter:description" content="" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:image" content="絶対パス" />
+    <meta name="twitter:description" content="株式会社Ziiは、HR・広報PR・ブランディング・DX・経理財務など、経営を動かすバックオフィス機能を包括的に支援します。" />
+    <meta name="twitter:title" content="株式会社Zii | 「チームの力」で、経営を動かす。バックオフィス・DX・HR支援" />
+    <meta name="twitter:image" content="/assets/img/ogimage.jpg" />
+    <!-- <meta name="twitter:image" content="https://www.zii.co.jp/assets/img/ogimage.jpg" /> -->
 
-    <link rel="icon" href="ファビコン画像への相対パス" />
+    <link rel="icon" href="/assets/img/favicon.png" />
+    <!-- <link rel="icon" href="https://www.zii.co.jp/assets/img/favicon.png" /> -->
 
-    <title>サイトタイトル</title>
+    <title>株式会社Zii | 「チームの力」で、経営を動かす。バックオフィス・DX・HR支援</title>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,10 +45,12 @@
     <div class="container">
       <header class="l-header">
         <div class="l-header__inner">
-          <h1 class="l-header__logo"><img src="/assets/img/logo-blue.png" width="77" height="40" alt="Zii" class="logo__img" /></h1>
+          <h1 class="l-header__logo">
+            <a href="/" class="l-header__logo__link"><img src="/assets/img/logo-blue.png" width="77" height="40" alt="Zii" class="l-header__logo__img" /></a>
+          </h1>
           <nav class="l-header__nav">
             <ul class="l-header__nav__list">
-              <li class="l-header__nav__item active"><a href="#service" class="l-header__nav__link">Service</a></li>
+              <li class="l-header__nav__item"><a href="#service" class="l-header__nav__link">Service</a></li>
               <li class="l-header__nav__item"><a href="#company" class="l-header__nav__link">Company</a></li>
               <li class="l-header__nav__item"><a href="#contact" class="l-header__nav__link">Contact</a></li>
             </ul>
@@ -138,6 +143,7 @@
             <a href="mailto:info@zii.co.jp" class="p-home__contact__btn"
               >お問い合わせはこちら<span class="p-home__contact__icon"><img src="/assets/img/ic_hand.png" alt="手を振るアイコン" /></span
             ></a>
+            <p class="p-home__contact__textlink">info@zii.co.jp</p>
           </div>
         </section>
       </main>
@@ -146,8 +152,49 @@
         <p class="l-footer__copy"><small>&copy; 2026 Zii Co., Ltd.</small></p>
       </footer>
     </div>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('#service, #company, #contact');
+        const navItems = document.querySelectorAll('.l-header__nav__item');
+
+        // --- Intersection Observer (通常のスクロール監視) ---
+        const options = {
+          rootMargin: '-30% 0px -70% 0px', // 判定エリアを少し上に寄せる
+          threshold: 0,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          // 最下部にいないときだけ Observer の判定を有効にするためのフラグ（任意）
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navItems.forEach((item) => item.classList.remove('is-active'));
+              const id = entry.target.getAttribute('id');
+              const targetLink = document.querySelector(`.l-header__nav__link[href="#${id}"]`);
+              if (targetLink) {
+                targetLink.parentElement.classList.add('is-active');
+              }
+            }
+          });
+        }, options);
+
+        sections.forEach((section) => observer.observe(section));
+
+        // --- 最下部到達時の強制判定 ---
+        window.addEventListener('scroll', () => {
+          const scrollHeight = document.documentElement.scrollHeight;
+          const scrollPosition = window.innerHeight + window.scrollY;
+
+          if (scrollHeight - scrollPosition <= 10) {
+            // 余裕を見て20pxくらい
+            navItems.forEach((item) => item.classList.remove('is-active'));
+            navItems[navItems.length - 1].classList.add('is-active');
+          }
+        });
+      });
+    </script>
     <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
-    <script src="/assets/js/function.js" defer></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script> -->
+    <!-- <script src="/assets/js/function.js" defer></script> -->
   </body>
 </html>

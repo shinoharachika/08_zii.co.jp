@@ -65,7 +65,7 @@
     }
     &__item {
       height: 100%;
-      &.active .l-header__nav__link {
+      &.is-active .l-header__nav__link {
         border-radius: 1000px;
         background: #2c3ccd;
         color: #fff;

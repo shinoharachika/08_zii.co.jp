@@ -360,7 +360,7 @@ faq
 .l-header__nav__item {
   height: 100%;
 }
-.l-header__nav__item.active .l-header__nav__link {
+.l-header__nav__item.is-active .l-header__nav__link {
   border-radius: 1000px;
   background: #2c3ccd;
   color: #fff;
@@ -648,12 +648,14 @@ button {
     padding-right: 0;
   }
 }
-.p-home__company__inner {
-  width: calc(0.7883597884 * min(100vw, 1512px));
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
-  gap: 7.5rem;
+@media screen and (min-width: 960px) {
+  .p-home__company__inner {
+    width: calc(0.7883597884 * min(100vw, 1512px));
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 7.5rem;
+  }
 }
 .p-home__company__title {
   margin-bottom: 1.875rem;
@@ -751,6 +753,7 @@ button {
 .p-home__contact__btn {
   width: 100%;
   height: clamp(4.375rem, 3.2887700535rem + 4.4563279857vw, 7.5rem);
+  margin-bottom: 1.25rem;
   border-radius: 1000px;
   background: #2c3ccd;
   box-shadow: 0 0 20px 0 rgba(34, 34, 34, 0.16);
@@ -774,4 +777,12 @@ button {
 .p-home__contact__icon {
   width: clamp(1.75rem, 1.445855615rem + 1.247771836vw, 2.625rem);
   height: clamp(1.75rem, 1.445855615rem + 1.247771836vw, 2.625rem);
+}
+.p-home__contact__textlink {
+  color: #2c3ccd;
+  text-align: center;
+  font-family: "Public Sans", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
 }
